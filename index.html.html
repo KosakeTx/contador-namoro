@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Tempo ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff4d6d, #ff99ac);
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(0,0,0,0.2);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    #contador {
+      font-size: 28px;
+      margin-top: 20px;
+    }
+
+    .heart {
+      font-size: 40px;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Lucas ❤️ Eduarda</h1>
+    <h2>Estamos juntos há:</h2>
+
+    <div id="contador">Carregando...</div>
+
+    <div class="heart">❤️</div>
+  </div>
+
+  <script>
+    // 🔥 COLOCA A DATA AQUI
+    const inicioNamoro = new Date("2025-03-06 22:00:00");
+
+    function atualizar() {
+      const agora = new Date();
+      const diff = agora - inicioNamoro;
+
+      const segundos = Math.floor(diff / 1000);
+      const minutos = Math.floor(segundos / 60);
+      const horas = Math.floor(minutos / 60);
+      const dias = Math.floor(horas / 24);
+
+      const horasRest = horas % 24;
+      const minutosRest = minutos % 60;
+      const segundosRest = segundos % 60;
+
+      document.getElementById("contador").innerHTML =
+        `${dias} dias 💖<br>
+         ${horasRest} horas ${minutosRest} minutos ${segundosRest} segundos`;
+    }
+
+    setInterval(atualizar, 1000);
+    atualizar();
+  </script>
+
+</body>
+</html>
